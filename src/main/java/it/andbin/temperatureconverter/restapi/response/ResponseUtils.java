@@ -39,7 +39,7 @@ public class ResponseUtils {
         TemperatureUnitDetailResponse response = new TemperatureUnitDetailResponse();
         response.setCode(temperatureUnit.getCode());
         response.setName(temperatureUnit.getName());
-        response.setSymbol(temperatureUnit.getSymbol());
+        response.setSymbols(temperatureUnit.getSymbols());
         response.setFreezingPoint(temperatureUnit.getFreezingPoint());
         response.setBoilingPoint(temperatureUnit.getBoilingPoint());
         response.setNamedAfter(temperatureUnit.getNamedAfter());

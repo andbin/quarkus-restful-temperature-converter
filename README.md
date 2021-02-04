@@ -76,7 +76,7 @@ Output:
 {
   "code" : "celsius",
   "name" : "Celsius",
-  "symbol" : "°C",
+  "symbols" : [ "°C" ],
   "freezingPoint" : 0.0,
   "boilingPoint" : 100.0,
   "namedAfter" : "Anders Celsius"

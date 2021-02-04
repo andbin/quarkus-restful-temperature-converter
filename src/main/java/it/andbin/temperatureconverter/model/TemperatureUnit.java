@@ -8,21 +8,24 @@
 
 package it.andbin.temperatureconverter.model;
 
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 import java.util.Objects;
 
 public abstract class TemperatureUnit implements Comparable<TemperatureUnit> {
     private final String code;
     private final String name;
-    private final String symbol;
+    private final List<String> symbols;
     private final double freezingPoint;
     private final double boilingPoint;
     private final String namedAfter;
 
-    public TemperatureUnit(String code, String name, String symbol,
+    public TemperatureUnit(String code, String name, String symbolsSpec,
             double freezingPoint, double boilingPoint, String namedAfter) {
-        this.code =  Objects.requireNonNull(code);
-        this.name = Objects.requireNonNull(name);
-        this.symbol = Objects.requireNonNull(symbol);
+        this.code =  Objects.requireNonNull(code, "Parameter 'code' cannot be null");
+        this.name = Objects.requireNonNull(name, "Parameter 'name' cannot be null");
+        this.symbols = parseSymbolsSpec(Objects.requireNonNull(symbolsSpec, "Parameter 'symbolsSpec' cannot be null"));
         this.freezingPoint = freezingPoint;
         this.boilingPoint = boilingPoint;
         this.namedAfter = namedAfter;
@@ -37,7 +40,11 @@ public abstract class TemperatureUnit implements Comparable<TemperatureUnit> {
     }
 
     public String getSymbol() {
-        return symbol;
+        return symbols.get(0);
+    }
+
+    public List<String> getSymbols() {
+        return symbols;
     }
 
     public double getFreezingPoint() {
@@ -76,7 +83,7 @@ public abstract class TemperatureUnit implements Comparable<TemperatureUnit> {
         return getClass().getSimpleName() + "["
              + "code=" + code + ", "
              + "name=" + name + ", "
-             + "symbol=" + symbol + ", "
+             + "symbols=" + symbols + ", "
              + "freezingPoint=" + freezingPoint + ", "
              + "boilingPoint=" + boilingPoint + ", "
              + "namedAfter=" + namedAfter
@@ -86,6 +93,20 @@ public abstract class TemperatureUnit implements Comparable<TemperatureUnit> {
     @Override
     public int compareTo(TemperatureUnit other) {
         return getName().compareTo(other.getName());
+    }
+
+    private static List<String> parseSymbolsSpec(String symbolsSpec) {
+        String[] symbolsTokens = symbolsSpec.split(",");
+
+        if (symbolsTokens.length < 1) {
+            throw new IllegalArgumentException("Invalid number of symbols");
+        }
+
+        for (int i = 0; i < symbolsTokens.length; i++) {
+            symbolsTokens[i] = symbolsTokens[i].trim();
+        }
+
+        return Collections.unmodifiableList(Arrays.asList(symbolsTokens));
     }
 
     public abstract double toKelvin(double x);

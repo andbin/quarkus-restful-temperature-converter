@@ -8,10 +8,12 @@
 
 package it.andbin.temperatureconverter.restapi.response;
 
+import java.util.List;
+
 public class TemperatureUnitDetailResponse {
     private String code;
     private String name;
-    private String symbol;
+    private List<String> symbols;
     private double freezingPoint;
     private double boilingPoint;
     private String namedAfter;
@@ -32,12 +34,12 @@ public class TemperatureUnitDetailResponse {
         this.name = name;
     }
 
-    public String getSymbol() {
-        return symbol;
+    public List<String> getSymbols() {
+        return symbols;
     }
 
-    public void setSymbol(String symbol) {
-        this.symbol = symbol;
+    public void setSymbols(List<String> symbols) {
+        this.symbols = symbols;
     }
 
     public double getFreezingPoint() {
