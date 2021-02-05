@@ -20,15 +20,18 @@ public abstract class TemperatureUnit implements Comparable<TemperatureUnit> {
     private final double freezingPoint;
     private final double boilingPoint;
     private final String namedAfter;
+    private final Integer establishmentYear;
 
     public TemperatureUnit(String code, String name, String symbolsSpec,
-            double freezingPoint, double boilingPoint, String namedAfter) {
+            double freezingPoint, double boilingPoint, String namedAfter,
+            Integer establishmentYear) {
         this.code =  Objects.requireNonNull(code, "Parameter 'code' cannot be null");
         this.name = Objects.requireNonNull(name, "Parameter 'name' cannot be null");
         this.symbols = parseSymbolsSpec(Objects.requireNonNull(symbolsSpec, "Parameter 'symbolsSpec' cannot be null"));
         this.freezingPoint = freezingPoint;
         this.boilingPoint = boilingPoint;
         this.namedAfter = namedAfter;
+        this.establishmentYear = establishmentYear;
     }
 
     public String getCode() {
@@ -59,6 +62,10 @@ public abstract class TemperatureUnit implements Comparable<TemperatureUnit> {
         return namedAfter;
     }
 
+    public Integer getEstablishmentYear() {
+        return establishmentYear;
+    }
+
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -86,7 +93,8 @@ public abstract class TemperatureUnit implements Comparable<TemperatureUnit> {
              + "symbols=" + symbols + ", "
              + "freezingPoint=" + freezingPoint + ", "
              + "boilingPoint=" + boilingPoint + ", "
-             + "namedAfter=" + namedAfter
+             + "namedAfter=" + namedAfter + ", "
+             + "establishmentYear=" + establishmentYear
              + "]";
     }
 

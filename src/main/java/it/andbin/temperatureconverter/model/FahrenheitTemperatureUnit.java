@@ -13,7 +13,7 @@ import javax.enterprise.context.ApplicationScoped;
 @ApplicationScoped
 public class FahrenheitTemperatureUnit extends TemperatureUnit {
     public FahrenheitTemperatureUnit() {
-        super("fahrenheit", "Fahrenheit", "°F", 32, 212, "Daniel Gabriel Fahrenheit");
+        super("fahrenheit", "Fahrenheit", "°F", 32, 212, "Daniel Gabriel Fahrenheit", 1724);
     }
 
     @Override

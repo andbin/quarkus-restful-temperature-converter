@@ -17,6 +17,7 @@ public class TemperatureUnitDetailResponse {
     private double freezingPoint;
     private double boilingPoint;
     private String namedAfter;
+    private Integer establishmentYear;
 
     public String getCode() {
         return code;
@@ -64,5 +65,13 @@ public class TemperatureUnitDetailResponse {
 
     public void setNamedAfter(String namedAfter) {
         this.namedAfter = namedAfter;
+    }
+
+    public Integer getEstablishmentYear() {
+        return establishmentYear;
+    }
+
+    public void setEstablishmentYear(Integer establishmentYear) {
+        this.establishmentYear = establishmentYear;
     }
 }

@@ -79,7 +79,8 @@ Output:
   "symbols" : [ "°C" ],
   "freezingPoint" : 0.0,
   "boilingPoint" : 100.0,
-  "namedAfter" : "Anders Celsius"
+  "namedAfter" : "Anders Celsius",
+  "establishmentYear" : 1742
 }
 ```
 

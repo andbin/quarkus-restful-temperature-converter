@@ -13,7 +13,7 @@ import javax.enterprise.context.ApplicationScoped;
 @ApplicationScoped
 public class CelsiusTemperatureUnit extends TemperatureUnit {
     public CelsiusTemperatureUnit() {
-        super("celsius", "Celsius", "°C", 0, 100, "Anders Celsius");
+        super("celsius", "Celsius", "°C", 0, 100, "Anders Celsius", 1742);
     }
 
     @Override

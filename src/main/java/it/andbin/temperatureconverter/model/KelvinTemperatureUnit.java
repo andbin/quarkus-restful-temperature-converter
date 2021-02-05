@@ -13,7 +13,7 @@ import javax.enterprise.context.ApplicationScoped;
 @ApplicationScoped
 public class KelvinTemperatureUnit extends TemperatureUnit {
     public KelvinTemperatureUnit() {
-        super("kelvin", "Kelvin", "K", 273.15, 373.15, "William Thomson, 1st Baron Kelvin");
+        super("kelvin", "Kelvin", "K", 273.15, 373.15, "William Thomson, 1st Baron Kelvin", 1848);
     }
 
     @Override

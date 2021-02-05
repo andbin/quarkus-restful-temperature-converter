@@ -13,7 +13,7 @@ import javax.enterprise.context.ApplicationScoped;
 @ApplicationScoped
 public class RankineTemperatureUnit extends TemperatureUnit {
     public RankineTemperatureUnit() {
-        super("rankine", "Rankine", "°R, °Ra", 491.67, 671.67, "Macquorn Rankine");
+        super("rankine", "Rankine", "°R, °Ra", 491.67, 671.67, "William John Macquorn Rankine", 1859);
     }
 
     @Override

@@ -13,7 +13,7 @@ import javax.enterprise.context.ApplicationScoped;
 @ApplicationScoped
 public class ReaumurTemperatureUnit extends TemperatureUnit {
     public ReaumurTemperatureUnit() {
-        super("reaumur", "Réaumur", "°Ré, °Re, °r", 0, 80, "René Antoine Ferchault de Réaumur");
+        super("reaumur", "Réaumur", "°Ré, °Re, °r", 0, 80, "René-Antoine Ferchault de Réaumur", 1730);
     }
 
     @Override

@@ -43,6 +43,7 @@ public class ResponseUtils {
         response.setFreezingPoint(temperatureUnit.getFreezingPoint());
         response.setBoilingPoint(temperatureUnit.getBoilingPoint());
         response.setNamedAfter(temperatureUnit.getNamedAfter());
+        response.setEstablishmentYear(temperatureUnit.getEstablishmentYear());
         return response;
     }
 
