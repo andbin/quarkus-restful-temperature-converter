@@ -17,12 +17,12 @@ public class CelsiusTemperatureUnit extends TemperatureUnit {
     }
 
     @Override
-    public double toKelvin(double x) {
-        return x + 273.15;
+    public double toKelvin(double celsius) {
+        return celsius + 273.15;
     }
 
     @Override
-    public double fromKelvin(double k) {
-        return k - 273.15;
+    public double fromKelvin(double kelvin) {
+        return kelvin - 273.15;
     }
 }

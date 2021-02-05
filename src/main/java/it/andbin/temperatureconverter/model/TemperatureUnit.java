@@ -110,5 +110,5 @@ public abstract class TemperatureUnit implements Comparable<TemperatureUnit> {
     }
 
     public abstract double toKelvin(double x);
-    public abstract double fromKelvin(double k);
+    public abstract double fromKelvin(double kelvin);
 }

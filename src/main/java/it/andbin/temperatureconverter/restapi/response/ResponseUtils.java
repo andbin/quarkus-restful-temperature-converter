@@ -18,7 +18,7 @@ import it.andbin.temperatureconverter.model.TemperatureValue;
 public class ResponseUtils {
     private ResponseUtils() {}
 
-    public static List<TemperatureUnitItemResponse> createTemperatureUnitItemsResponse(
+    public static List<TemperatureUnitItemResponse> createTemperatureUnitsListResponse(
             List<TemperatureUnit> temperatureUnits) {
         return temperatureUnits.stream()
                 .map(ResponseUtils::createTemperatureUnitItemResponse)

@@ -17,12 +17,12 @@ public class FahrenheitTemperatureUnit extends TemperatureUnit {
     }
 
     @Override
-    public double toKelvin(double x) {
-        return (x + 459.67) / 1.8;
+    public double toKelvin(double fahrenheit) {
+        return (fahrenheit + 459.67) / 1.8;
     }
 
     @Override
-    public double fromKelvin(double k) {
-        return k * 1.8 - 459.67;
+    public double fromKelvin(double kelvin) {
+        return kelvin * 1.8 - 459.67;
     }
 }

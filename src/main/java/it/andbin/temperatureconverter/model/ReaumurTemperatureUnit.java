@@ -17,12 +17,12 @@ public class ReaumurTemperatureUnit extends TemperatureUnit {
     }
 
     @Override
-    public double toKelvin(double x) {
-        return x * 1.25 + 273.15;
+    public double toKelvin(double reaumur) {
+        return reaumur * 1.25 + 273.15;
     }
 
     @Override
-    public double fromKelvin(double k) {
-        return (k - 273.15) / 1.25;
+    public double fromKelvin(double kelvin) {
+        return (kelvin - 273.15) / 1.25;
     }
 }

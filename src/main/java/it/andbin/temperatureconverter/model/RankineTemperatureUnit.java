@@ -17,12 +17,12 @@ public class RankineTemperatureUnit extends TemperatureUnit {
     }
 
     @Override
-    public double toKelvin(double x) {
-        return x / 1.8;
+    public double toKelvin(double rankine) {
+        return rankine / 1.8;
     }
 
     @Override
-    public double fromKelvin(double k) {
-        return k * 1.8;
+    public double fromKelvin(double kelvin) {
+        return kelvin * 1.8;
     }
 }

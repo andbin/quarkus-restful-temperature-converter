@@ -40,7 +40,7 @@ public class TemperatureRestApi {
     @Produces(MediaType.APPLICATION_JSON)
     public List<TemperatureUnitItemResponse> getAllTemperatureUnits() {
         List<TemperatureUnit> temperatureUnits = temperatureService.getAllUnits();
-        return ResponseUtils.createTemperatureUnitItemsResponse(temperatureUnits);
+        return ResponseUtils.createTemperatureUnitsListResponse(temperatureUnits);
     }
 
     @GET
@@ -57,13 +57,13 @@ public class TemperatureRestApi {
     @Path("{fromUnit}/{toUnit}/{value}")
     @Produces(MediaType.APPLICATION_JSON)
     public TemperatureConversionResultResponse getTemperatureConversion(
-            @PathParam("fromUnit") String fromUnit,
-            @PathParam("toUnit") String toUnit,
+            @PathParam("fromUnit") String fromUnitSpec,
+            @PathParam("toUnit") String toUnitSpec,
             @PathParam("value") double value,
             @QueryParam("d") @DefaultValue("4") @Min(0) @Max(7) int fractionalDigits)
                     throws TemperatureException {
-        TemperatureUnit fromTemperatureUnit = temperatureService.findUnit(fromUnit);
-        TemperatureUnit toTemperatureUnit = temperatureService.findUnit(toUnit);
+        TemperatureUnit fromTemperatureUnit = temperatureService.findUnit(fromUnitSpec);
+        TemperatureUnit toTemperatureUnit = temperatureService.findUnit(toUnitSpec);
 
         TemperatureValue fromTemperatureValue = new TemperatureValue(value, fromTemperatureUnit);
         TemperatureValue toTemperatureValue = fromTemperatureValue.convertTo(toTemperatureUnit);
