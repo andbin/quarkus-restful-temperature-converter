@@ -17,19 +17,19 @@ public abstract class TemperatureUnit implements Comparable<TemperatureUnit> {
     private final String code;
     private final String name;
     private final List<String> symbols;
-    private final double freezingPoint;
-    private final double boilingPoint;
+    private final double waterFreezingPoint;
+    private final double waterBoilingPoint;
     private final String namedAfter;
     private final Integer establishmentYear;
 
     public TemperatureUnit(String code, String name, String symbolsSpec,
-            double freezingPoint, double boilingPoint, String namedAfter,
-            Integer establishmentYear) {
+            double waterFreezingPoint, double waterBoilingPoint,
+            String namedAfter, Integer establishmentYear) {
         this.code =  Objects.requireNonNull(code, "Parameter 'code' cannot be null");
         this.name = Objects.requireNonNull(name, "Parameter 'name' cannot be null");
         this.symbols = parseSymbolsSpec(Objects.requireNonNull(symbolsSpec, "Parameter 'symbolsSpec' cannot be null"));
-        this.freezingPoint = freezingPoint;
-        this.boilingPoint = boilingPoint;
+        this.waterFreezingPoint = waterFreezingPoint;
+        this.waterBoilingPoint = waterBoilingPoint;
         this.namedAfter = namedAfter;
         this.establishmentYear = establishmentYear;
     }
@@ -50,12 +50,12 @@ public abstract class TemperatureUnit implements Comparable<TemperatureUnit> {
         return symbols;
     }
 
-    public double getFreezingPoint() {
-        return freezingPoint;
+    public double getWaterFreezingPoint() {
+        return waterFreezingPoint;
     }
 
-    public double getBoilingPoint() {
-        return boilingPoint;
+    public double getWaterBoilingPoint() {
+        return waterBoilingPoint;
     }
 
     public String getNamedAfter() {
@@ -91,8 +91,8 @@ public abstract class TemperatureUnit implements Comparable<TemperatureUnit> {
              + "code=" + code + ", "
              + "name=" + name + ", "
              + "symbols=" + symbols + ", "
-             + "freezingPoint=" + freezingPoint + ", "
-             + "boilingPoint=" + boilingPoint + ", "
+             + "waterFreezingPoint=" + waterFreezingPoint + ", "
+             + "waterBoilingPoint=" + waterBoilingPoint + ", "
              + "namedAfter=" + namedAfter + ", "
              + "establishmentYear=" + establishmentYear
              + "]";

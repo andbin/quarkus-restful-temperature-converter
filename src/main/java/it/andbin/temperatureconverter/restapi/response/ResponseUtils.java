@@ -40,8 +40,8 @@ public class ResponseUtils {
         response.setCode(temperatureUnit.getCode());
         response.setName(temperatureUnit.getName());
         response.setSymbols(temperatureUnit.getSymbols());
-        response.setFreezingPoint(temperatureUnit.getFreezingPoint());
-        response.setBoilingPoint(temperatureUnit.getBoilingPoint());
+        response.setWaterFreezingPoint(temperatureUnit.getWaterFreezingPoint());
+        response.setWaterBoilingPoint(temperatureUnit.getWaterBoilingPoint());
         response.setNamedAfter(temperatureUnit.getNamedAfter());
         response.setEstablishmentYear(temperatureUnit.getEstablishmentYear());
         return response;

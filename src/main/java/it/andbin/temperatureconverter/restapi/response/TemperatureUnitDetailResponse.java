@@ -14,8 +14,8 @@ public class TemperatureUnitDetailResponse {
     private String code;
     private String name;
     private List<String> symbols;
-    private double freezingPoint;
-    private double boilingPoint;
+    private double waterFreezingPoint;
+    private double waterBoilingPoint;
     private String namedAfter;
     private Integer establishmentYear;
 
@@ -43,20 +43,20 @@ public class TemperatureUnitDetailResponse {
         this.symbols = symbols;
     }
 
-    public double getFreezingPoint() {
-        return freezingPoint;
+    public double getWaterFreezingPoint() {
+        return waterFreezingPoint;
     }
 
-    public void setFreezingPoint(double freezingPoint) {
-        this.freezingPoint = freezingPoint;
+    public void setWaterFreezingPoint(double waterFreezingPoint) {
+        this.waterFreezingPoint = waterFreezingPoint;
     }
 
-    public double getBoilingPoint() {
-        return boilingPoint;
+    public double getWaterBoilingPoint() {
+        return waterBoilingPoint;
     }
 
-    public void setBoilingPoint(double boilingPoint) {
-        this.boilingPoint = boilingPoint;
+    public void setWaterBoilingPoint(double waterBoilingPoint) {
+        this.waterBoilingPoint = waterBoilingPoint;
     }
 
     public String getNamedAfter() {

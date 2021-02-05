@@ -77,8 +77,8 @@ Output:
   "code" : "celsius",
   "name" : "Celsius",
   "symbols" : [ "°C" ],
-  "freezingPoint" : 0.0,
-  "boilingPoint" : 100.0,
+  "waterFreezingPoint" : 0.0,
+  "waterBoilingPoint" : 100.0,
   "namedAfter" : "Anders Celsius",
   "establishmentYear" : 1742
 }
