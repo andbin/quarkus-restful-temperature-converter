@@ -16,6 +16,14 @@ import com.fasterxml.jackson.databind.SerializationFeature;
 import io.quarkus.jackson.ObjectMapperCustomizer;
 import io.quarkus.runtime.LaunchMode;
 
+/*
+ * The ObjectMapperCustomizer interface is provided by the "quarkus-resteasy-jackson"
+ * extension and is meant to be implemented by a CDI bean (like this class) in
+ * order to customize the default ObjectMapper (from Jackson library).
+ *
+ * The implementation in this class enables the "pretty print" feature of
+ * Jackson only when the application is started in "dev" mode.
+ */
 @Singleton
 public class ObjectMapperCustomizerImpl implements ObjectMapperCustomizer {
     @Override

@@ -99,7 +99,7 @@ public abstract class TemperatureUnit implements Comparable<TemperatureUnit> {
         String[] symbolsTokens = symbolsSpec.split(",");
 
         if (symbolsTokens.length < 1) {
-            throw new IllegalArgumentException("Invalid number of symbols");
+            throw new IllegalArgumentException("Insufficient number of symbols");
         }
 
         for (int i = 0; i < symbolsTokens.length; i++) {

@@ -16,7 +16,7 @@ public class TemperatureValue {
 
     public TemperatureValue(double value, TemperatureUnit unit) {
         this.value = value;
-        this.unit = Objects.requireNonNull(unit);
+        this.unit = Objects.requireNonNull(unit, "Parameter 'unit' cannot be null");
     }
 
     public double getValue() {
@@ -27,14 +27,14 @@ public class TemperatureValue {
         return unit;
     }
 
-    public TemperatureValue convertTo(TemperatureUnit otherUnit) {
-        Objects.requireNonNull(otherUnit);
+    public TemperatureValue convertTo(TemperatureUnit toUnit) {
+        Objects.requireNonNull(toUnit, "Parameter 'toUnit' cannot be null");
 
-        if (unit.equals(otherUnit)) {
+        if (unit.equals(toUnit)) {
             return this;
         } else {
             double kelvin = unit.toKelvin(getValue());
-            return new TemperatureValue(otherUnit.fromKelvin(kelvin), otherUnit);
+            return new TemperatureValue(toUnit.fromKelvin(kelvin), toUnit);
         }
     }
 
