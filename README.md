@@ -1,6 +1,8 @@
 # Quarkus RESTful Temperature Converter
 
-The &ldquo;Quarkus RESTful Temperature Converter&rdquo; is a simple demonstrative application that exposes a RESTful web service for temperature conversion developed with [Quarkus](https://quarkus.io) (the &ldquo;Supersonic Subatomic&rdquo; Java Framework).
+The &ldquo;Quarkus RESTful Temperature Converter&rdquo; is a simple demonstrative application that exposes a RESTful web service for **temperature conversion** developed with [Quarkus](https://quarkus.io) (the &ldquo;Supersonic Subatomic&rdquo; Java Framework).
+
+Currently the application supports 6 temperature units: Celsius &ndash; Fahrenheit &ndash; Kelvin &ndash; Rankine &ndash; Réaumur &ndash; Rømer
 
 This project is exclusively developed by [Andrea Binello](https://andbin.it/who-i-am) (&ldquo;andbin&rdquo;).
 
