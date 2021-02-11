@@ -72,7 +72,7 @@ public abstract class TemperatureUnit implements Comparable<TemperatureUnit> {
             return true;
         }
 
-        if (obj == null || getClass() != obj.getClass()) {
+        if (obj == null || !(obj instanceof TemperatureUnit)) {
             return false;
         }
 
