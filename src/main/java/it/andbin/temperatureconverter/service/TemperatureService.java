@@ -38,6 +38,12 @@ public class TemperatureService {
         return new ArrayList<>(temperatureUnits);
     }
 
+    public List<TemperatureUnit> getAllUnitsExcluding(TemperatureUnit excludedUnit) {
+        return temperatureUnits.stream()
+                .filter(temperatureUnit -> !temperatureUnit.equals(excludedUnit))
+                .collect(Collectors.toList());
+    }
+
     public TemperatureUnit findUnit(String unitSpec)
             throws AmbiguousTemperatureSpecException, UnknownTemperatureSpecException {
         TemperatureUnit resultUnit = null;

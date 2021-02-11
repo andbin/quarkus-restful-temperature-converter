@@ -8,7 +8,9 @@
 
 package it.andbin.temperatureconverter.model;
 
+import java.util.List;
 import java.util.Objects;
+import java.util.stream.Collectors;
 
 public class TemperatureValue {
     private final double value;
@@ -36,6 +38,10 @@ public class TemperatureValue {
             double kelvin = unit.toKelvin(getValue());
             return new TemperatureValue(toUnit.fromKelvin(kelvin), toUnit);
         }
+    }
+
+    public List<TemperatureValue> convertTo(List<TemperatureUnit> toUnits) {
+        return toUnits.stream().map(this::convertTo).collect(Collectors.toList());
     }
 
     @Override

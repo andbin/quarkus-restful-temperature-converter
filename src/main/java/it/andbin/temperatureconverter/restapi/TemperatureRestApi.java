@@ -27,6 +27,7 @@ import it.andbin.temperatureconverter.model.TemperatureUnit;
 import it.andbin.temperatureconverter.model.TemperatureValue;
 import it.andbin.temperatureconverter.restapi.response.ResponseUtils;
 import it.andbin.temperatureconverter.restapi.response.TemperatureConversionResultResponse;
+import it.andbin.temperatureconverter.restapi.response.TemperatureConversionsResultResponse;
 import it.andbin.temperatureconverter.restapi.response.TemperatureUnitDetailResponse;
 import it.andbin.temperatureconverter.restapi.response.TemperatureUnitItemResponse;
 import it.andbin.temperatureconverter.service.TemperatureService;
@@ -70,5 +71,23 @@ public class TemperatureRestApi {
 
         return ResponseUtils.createTemperatureConversionResultResponse(
                 fromTemperatureValue, toTemperatureValue, new NumberRounder(fractionalDigits));
+    }
+
+    @GET
+    @Path("{fromUnit}/others/{value}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public TemperatureConversionsResultResponse getTemperatureConversions(
+            @PathParam("fromUnit") String fromUnitSpec,
+            @PathParam("value") double value,
+            @QueryParam("d") @DefaultValue("4") @Min(0) @Max(7) int fractionalDigits)
+                    throws TemperatureException {
+        TemperatureUnit fromTemperatureUnit = temperatureService.findUnit(fromUnitSpec);
+        List<TemperatureUnit> toTemperatureUnits = temperatureService.getAllUnitsExcluding(fromTemperatureUnit);
+
+        TemperatureValue fromTemperatureValue = new TemperatureValue(value, fromTemperatureUnit);
+        List<TemperatureValue> toTemperatureValues = fromTemperatureValue.convertTo(toTemperatureUnits);
+
+        return ResponseUtils.createTemperatureConversionsResultResponse(
+                fromTemperatureValue, toTemperatureValues, new NumberRounder(fractionalDigits));
     }
 }

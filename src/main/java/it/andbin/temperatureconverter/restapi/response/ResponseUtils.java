@@ -55,6 +55,14 @@ public class ResponseUtils {
         return response;
     }
 
+    public static TemperatureConversionsResultResponse createTemperatureConversionsResultResponse(
+            TemperatureValue fromValue, List<TemperatureValue> toValues, NumberRounder rounder) {
+        TemperatureConversionsResultResponse response = new TemperatureConversionsResultResponse();
+        response.setFrom(createTemperatureValueResponse(fromValue, null));
+        response.setTo(createTemperatureValuesResponse(toValues, rounder));
+        return response;
+    }
+
     public static TemperatureValueResponse createTemperatureValueResponse(
             TemperatureValue temperatureValue, NumberRounder rounder) {
         TemperatureValueResponse response = new TemperatureValueResponse();
@@ -62,5 +70,12 @@ public class ResponseUtils {
         response.setName(temperatureValue.getUnit().getName());
         response.setSymbol(temperatureValue.getUnit().getSymbol());
         return response;
+    }
+
+    public static List<TemperatureValueResponse> createTemperatureValuesResponse(
+            List<TemperatureValue> temperatureValues, NumberRounder rounder) {
+        return temperatureValues.stream()
+                .map(temperatureValue -> createTemperatureValueResponse(temperatureValue, rounder))
+                .collect(Collectors.toList());
     }
 }

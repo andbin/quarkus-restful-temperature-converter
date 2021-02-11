@@ -36,9 +36,9 @@ mvnw compile quarkus:dev
 
 ## REST API
 
-The REST API is very simple and consists of only 3 endpoints. You can try and test the API using [curl](https://curl.se) or [Postman](https://www.postman.com/downloads/) or any other similar tool.
+The REST API is very simple and consists of only 4 endpoints. You can try and test the API using [curl](https://curl.se) or [Postman](https://www.postman.com/downloads/) or any other similar tool.
 
-### :small_blue_diamond: Endpoint 1: Get all temperature units
+### :small_blue_diamond: Endpoint #1: Get all temperature units
 
 &#8594; GET <code>http://<em>host</em>:<em>port</em>/temperatures</code>
 
@@ -66,7 +66,7 @@ Output (JSON):
 ]
 ```
 
-### :small_blue_diamond: Endpoint 2: Get temperature unit detail
+### :small_blue_diamond: Endpoint #2: Get temperature unit detail
 
 &#8594; GET <code>http://<em>host</em>:<em>port</em>/temperatures/{unit}</code>
 
@@ -110,7 +110,7 @@ Output (JSON):
 }
 ```
 
-### :small_blue_diamond: Endpoint 3: Get temperature conversion
+### :small_blue_diamond: Endpoint #3: Get temperature conversion
 
 &#8594; GET <code>http://<em>host</em>:<em>port</em>/temperatures/{fromUnit}/{toUnit}/{value}?d={fractionalDigits}</code>
 
@@ -136,6 +136,43 @@ Output (JSON):
     "name" : "Fahrenheit",
     "symbol" : "°F"
   }
+}
+```
+
+### :small_blue_diamond: Endpoint #4: Get temperature conversions
+
+&#8594; GET <code>http://<em>host</em>:<em>port</em>/temperatures/{fromUnit}/others/{value}?d={fractionalDigits}</code>
+
+Query param **`d`** is the number of *fractional digits* used for rounding the result. It can be a value from 0 to 7 and is **optional** (default value: 4).
+
+#### Example
+
+```shell
+curl http://localhost:8080/temperatures/celsius/others/32.7
+```
+
+Output (JSON):
+
+```console
+{
+  "from" : {
+    "value" : 32.7,
+    "name" : "Celsius",
+    "symbol" : "°C"
+  },
+  "to" : [ {
+    "value" : 90.86,
+    "name" : "Fahrenheit",
+    "symbol" : "°F"
+  }, {
+    "value" : 305.85,
+    "name" : "Kelvin",
+    "symbol" : "K"
+  },
+
+      ......other units, truncated for brevity
+
+  ]
 }
 ```
 
