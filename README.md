@@ -2,7 +2,7 @@
 
 The &ldquo;Quarkus RESTful Temperature Converter&rdquo; is a simple demonstrative application that exposes a RESTful web service for **temperature conversion** developed with [Quarkus](https://quarkus.io) (the &ldquo;Supersonic Subatomic&rdquo; Java Framework).
 
-Currently the application supports 6 temperature units: Celsius &ndash; Fahrenheit &ndash; Kelvin &ndash; Rankine &ndash; Réaumur &ndash; Rømer
+The application currently supports 6 temperature units: Celsius &ndash; Fahrenheit &ndash; Kelvin &ndash; Rankine &ndash; Réaumur &ndash; Rømer
 
 This project is exclusively developed by [Andrea Binello](https://andbin.it/who-i-am) (&ldquo;andbin&rdquo;).
 
@@ -20,7 +20,7 @@ You can also see external resources like [here](https://opensource.org/licenses/
 The project requires at least:
 
 * a JDK 11 or later version
-* a very recent Maven version (e.g. Maven 3.6.3 is ok)
+* a very recent version of Maven (e.g. Maven 3.6.3 is ok)
 
 Then you can build and run the application with:
 
@@ -40,15 +40,15 @@ The REST API is very simple and consists of only 3 endpoints. You can try and te
 
 ### :small_blue_diamond: Endpoint 1: Get all temperature units
 
-&#8594; GET `http://host:port/temperatures`
+&#8594; GET <code>http://<em>host</em>:<em>port</em>/temperatures</code>
 
-Example:
+#### Example
 
 ```shell
 curl http://localhost:8080/temperatures
 ```
 
-Output:
+Output (JSON):
 
 ```console
 [ {
@@ -56,23 +56,27 @@ Output:
   "name" : "Celsius",
   "symbol" : "°C"
 }, {
+  "code" : "fahrenheit",
+  "name" : "Fahrenheit",
+  "symbol" : "°F"
+},
 
     ......other units, truncated for brevity
 
-} ]
+]
 ```
 
 ### :small_blue_diamond: Endpoint 2: Get temperature unit detail
 
-&#8594; GET `http://host:port/temperatures/{unit}`
+&#8594; GET <code>http://<em>host</em>:<em>port</em>/temperatures/{unit}</code>
 
-Example:
+#### Example 1
 
 ```shell
 curl http://localhost:8080/temperatures/celsius
 ```
 
-Output:
+Output (JSON):
 
 ```console
 {
@@ -86,19 +90,39 @@ Output:
 }
 ```
 
+#### Example 2
+
+```shell
+curl http://localhost:8080/temperatures/rankine
+```
+
+Output (JSON):
+
+```console
+{
+  "code" : "rankine",
+  "name" : "Rankine",
+  "symbols" : [ "°R", "°Ra" ],
+  "waterFreezingPoint" : 491.67,
+  "waterBoilingPoint" : 671.67,
+  "namedAfter" : "William John Macquorn Rankine",
+  "establishmentYear" : 1859
+}
+```
+
 ### :small_blue_diamond: Endpoint 3: Get temperature conversion
 
-&#8594; GET `http://host:port/temperatures/{fromUnit}/{toUnit}/{value}?d={fractionalDigits}`
+&#8594; GET <code>http://<em>host</em>:<em>port</em>/temperatures/{fromUnit}/{toUnit}/{value}?d={fractionalDigits}</code>
 
 Query param **`d`** is the number of *fractional digits* used for rounding the result. It can be a value from 0 to 7 and is **optional** (default value: 4).
 
-Example:
+#### Example
 
 ```shell
 curl http://localhost:8080/temperatures/celsius/fahrenheit/32.7
 ```
 
-Output:
+Output (JSON):
 
 ```console
 {
