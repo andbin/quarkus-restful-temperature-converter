@@ -41,6 +41,7 @@ public class TemperatureValue {
     }
 
     public List<TemperatureValue> convertTo(List<TemperatureUnit> toUnits) {
+        Objects.requireNonNull(toUnits, "Parameter 'toUnits' cannot be null");
         return toUnits.stream().map(this::convertTo).collect(Collectors.toList());
     }
 
